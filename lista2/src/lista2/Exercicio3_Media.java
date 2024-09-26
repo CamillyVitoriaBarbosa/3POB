@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Exercicio3_Media {
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+	Scanner scanner = new Scanner(System.in);
 
         System.out.println("Digite o seu nome: ");
         String nome = scanner.nextLine();
@@ -23,6 +23,5 @@ public class Exercicio3_Media {
         }
         
         scanner.close();
-	}
-
+     }
 }
