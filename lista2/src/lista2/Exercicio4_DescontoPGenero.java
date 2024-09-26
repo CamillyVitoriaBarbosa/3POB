@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 public class Exercicio4_DescontoPGenero {
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+	Scanner scanner = new Scanner(System.in);
         DecimalFormat df = new DecimalFormat("0.00");
         
         System.out.println("Digite o seu nome: ");
@@ -17,20 +17,19 @@ public class Exercicio4_DescontoPGenero {
         double salarioBruto = scanner.nextDouble();
         
         if(genero == 'M') {
-        	double desconto = salarioBruto * 0.05;
-        	double salarioLiquido = salarioBruto - desconto;
+            double desconto = salarioBruto * 0.05;
+            double salarioLiquido = salarioBruto - desconto;
         	
-        	System.out.println("O valor do seu desconto é de: " + df.format(desconto));
+            System.out.println("O valor do seu desconto é de: " + df.format(desconto));
             System.out.println("O seu salário final é: " + df.format(salarioLiquido));
         } else {
-        	double desconto = salarioBruto * 0.03;
-        	double salarioLiquido = salarioBruto - desconto;
+            double desconto = salarioBruto * 0.03;
+            double salarioLiquido = salarioBruto - desconto;
         	
-        	System.out.println("O valor do seu desconto é de: " + df.format(desconto));
+            System.out.println("O valor do seu desconto é de: " + df.format(desconto));
             System.out.println("O seu salário final é: " + df.format(salarioLiquido));
         }
         
         scanner.close();
-	}
-
+     }
 }
