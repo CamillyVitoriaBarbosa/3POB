@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercicio1_EhMenor {
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+	Scanner scanner = new Scanner(System.in);
 
         System.out.println("Digite o seu nome: ");
         String nome = scanner.nextLine();
@@ -12,10 +12,9 @@ public class Exercicio1_EhMenor {
         int idade = scanner.nextInt();
 
         if (idade < 18) {
-        	  System.out.println("Você é menor");
+            System.out.println("Você é menor");
         }
         
         scanner.close();
-	}
-	
+     }
 }
