@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Exercicio8_FormaDPagamento {
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+	Scanner scanner = new Scanner(System.in);
 
         System.out.print("Digite o codigo do produto: ");
         int codigo = scanner.nextInt();
@@ -44,6 +44,5 @@ public class Exercicio8_FormaDPagamento {
         System.out.println("Preço total:" + preco);
 
         scanner.close();
-	}
-
+   }
 }
