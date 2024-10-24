@@ -1,6 +1,6 @@
 package dominio;
 
-public class Funcionario {
+public abstract class Funcionario {
 	protected String matricula;
 	protected String cpf;
 	protected String nome;
