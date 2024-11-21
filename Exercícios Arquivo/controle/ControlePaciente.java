@@ -1,6 +1,6 @@
 package exercicioArrayList.controle;
 
-
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,14 +8,17 @@ import exercicioArrayList.dominio.Paciente;
 
 public class ControlaPaciente {
    private ArrayList<Paciente> pacientes;
+   private final String arquivoPacientes = "pacientes.txt";
 
     public ControlaPaciente() {
         this.pacientes = new ArrayList<>();
+        carregarPacientes();
     }
 
     public void adicionarPaciente(int numero, double peso, double altura) {
         Paciente paciente = new Paciente(numero, peso, altura);
         pacientes.add(paciente);
+        salvarPacientes();
         System.out.println("Paciente adicionado com sucesso!");
     }
 
@@ -41,6 +44,7 @@ public class ControlaPaciente {
             
             paciente.setPeso(novoPeso);
             paciente.setAltura(novaAltura);
+            salvarPacientes();
             System.out.println("Paciente alterado com sucesso!");
         } else {
             System.out.println("Paciente de número " + numero + " não encontrado.");
@@ -51,6 +55,7 @@ public class ControlaPaciente {
         Paciente paciente = buscarPacientePorNumero(numero);
         if (paciente != null) {
             pacientes.remove(paciente);
+            salvarPacientes();
             System.out.println("Paciente excluído com sucesso!");
         } else {
             System.out.println("Paciente com número " + numero + " não encontrado.");
@@ -64,6 +69,34 @@ public class ControlaPaciente {
             }
         }
         return null;
+    }
+
+       private void salvarPacientes() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivoPacientes))) {
+            for (Paciente paciente : pacientes) {
+                writer.write(paciente.getNumero() + ";" + paciente.getPeso() + ";" + paciente.getAltura());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar produtos: " + e.getMessage());
+        }
+    }
+
+     private void carregarPacientes() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(arquivoPacientes))) {
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                String[] dados = linha.split(";");
+                int numero = Integer.parseInt(dados[0]);
+                double peso = Double.parseDouble(dados[1]);
+                double altura = Double.parseDouble(dados[2]);
+                pacientes.add(new Paciente(numero, peso, altura));
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Arquivo de pacientess não encontrado. Será criado ao salvar novos produtos.");
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar pacientes: " + e.getMessage());
+        }
     }
 
     public static void main(String[] args) {
