@@ -1,4 +1,4 @@
-package ExercicioArrayList.dominio;
+package exercicioArrayList.dominio;
 
 public class Paciente {
     private int numero;
